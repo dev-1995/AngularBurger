@@ -48,7 +48,7 @@
           <th></th>
           </tr>
           <tr ng-repeat="item in menu | filter:{name:nameFilter} | filter:{price:priceFilter}">
-            <td>{{ item.name |uppercase }}</td>
+            <td>{{ item.name | titleCase }}</td>
             <td>{{ item.price }}</td>
             <td><a class="waves-effect waves-light btn" ng-click="addItem(item.name);updatePrice(item.price)">Add</a></td>
           </tr>
@@ -63,7 +63,7 @@
         <div class="card-content white-text">
           <span class="card-title">Your Burger</span>
             <ul id="orderItm" ng-repeat="item in order.items">
-            <li>{{ item }} <a class="waves-effect waves-light btn" ng-click="removeItem">Remove</a></li>
+            <li>{{ item | titleCase }} <a class="waves-effect waves-light btn" ng-click="removeItem">Remove</a></li>
           </ul>
           <b>Price</b>  : {{ order.price }}
         </div>
