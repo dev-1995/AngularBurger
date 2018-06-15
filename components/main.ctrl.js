@@ -1,5 +1,5 @@
 (function(){
-angular.module("App").controller("mainCtrl",function($scope){
+angular.module("App").controller("mainCtrl",function($scope,$http){
 	
 	$scope.nameFilter = '';
 	$scope.priceFilter = '';
@@ -7,6 +7,21 @@ angular.module("App").controller("mainCtrl",function($scope){
 		items : [],
 		price : 0
 	};
+	$scope.foodItems = [];
+	 $http({
+      method: 'GET',
+      url: 'http://demo9148282.mockable.io/foodItems'
+   }).then(function (response){
+   			for(var item of response.data)
+   			{
+   				$scope.foodItems.push(item);
+   			}
+   },function (error){
+
+   });
+	// console.log($scope.foodItems);
+	
+
 	$scope.addItem = function(item)
 	{
 		if($scope.order.items.indexOf(item) < 0)
@@ -21,38 +36,7 @@ angular.module("App").controller("mainCtrl",function($scope){
 	}
 
 
-	$scope.menu = [{
-		id:1,
-		name:"tomato",
-		price:10
-	},
-	{
-		id:1,
-		name:"onion",
-		price:10
-	},
-	{
-		id:1,
-		name:"jalapeno",
-		price:10
-	},
-	{
-		id:1,
-		name:"noodles",
-		price:15
-	},
-	{
-		id:1,
-		name:"cheese",
-		price:20
-	},
-	{
-		id:1,
-		name:"mayo",
-		price:30
-	},
-	
-	];
+	$scope.menu = $scope.foodItems;
 	
 })
 
