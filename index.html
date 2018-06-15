@@ -18,7 +18,7 @@
 </style>
 </head>
 
-<body ng-app="App"  ng-controller="mainCtrl">
+<body ng-cloak ng-app="App"  ng-controller="mainCtrl">
 
 <nav>
     <div class="nav-wrapper">
@@ -62,7 +62,7 @@
        <div class="card blue-grey darken-1">
         <div class="card-content white-text">
           <span class="card-title">Your Burger</span>
-            <ul id="orderItm" ng-repeat="item in order.items">
+            <ul id="orderItm" ng-repeat="item in order.items" >
             <li>{{ item | titleCase }} </li>
           </ul>
           <b>Price</b>  : {{ order.price }}
