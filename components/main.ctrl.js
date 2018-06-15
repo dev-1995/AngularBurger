@@ -1,7 +1,8 @@
 (function(){
 angular.module("App").controller("mainCtrl",function($scope){
 	
-	$scope.search = '';
+	$scope.nameFilter = '';
+	$scope.priceFilter = '';
 	$scope.order = {
 		items : [],
 		price : 0
